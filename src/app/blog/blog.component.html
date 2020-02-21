@@ -1,0 +1,33 @@
+<p>blog works!</p>
+
+<form (ngSubmit)="addPost(newPostForm.value)"
+    [formGroup]="newPostForm">
+
+    <input type="hidden" formControlName="id">
+
+    <div>
+        <label for="titulo">Titulo:</label>
+        <input type="text" formControlName="titulo">
+    </div>
+
+    <div>
+        <label for="noticia">Noticia: </label>
+        <input type="text" formControlName="noticia">
+    </div>
+
+    <div>
+        <label for="foto">Foto: </label>
+        <input type="url" formControlName="foto">
+    </div>
+    
+    <input type="submit">
+</form>
+
+<hr/>
+
+<div *ngFor="let post of posts">
+    <h3> {{ post.data.titulo }} </h3>
+    <p> {{ post.data.noticia }} </p>
+    <img [src]="post.data.foto">
+    <hr/>
+</div>
